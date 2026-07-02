@@ -1,0 +1,24 @@
+{
+    "actorSpecification": 1,
+    "name": "tradeindia-supplier-scraper",
+    "title": "TradeIndia Supplier Scraper",
+    "description": "Extract highly valuable B2B supplier profiles, company names, cities, trust seals, and years in business from TradeIndia category pages.",
+    "version": "0.0",
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile",
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 1024,
+    "pricingModel": "PAY_PER_EVENT",
+    "pricingEvents": [
+        {
+            "eventName": "apify-actor-start",
+            "pricePerEvent": 0.00005,
+            "description": "Charged once when Actor starts"
+        },
+        {
+            "eventName": "supplier-extracted",
+            "pricePerEvent": 0.0015,
+            "description": "Charged per TradeIndia supplier successfully extracted"
+        }
+    ]
+}

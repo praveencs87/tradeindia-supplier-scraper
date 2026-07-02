@@ -1,0 +1,26 @@
+{
+    "title": "TradeIndia Supplier Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "categoryUrls": {
+            "title": "TradeIndia Category URLs",
+            "type": "array",
+            "description": "List of TradeIndia category URLs to scrape.",
+            "editor": "requestListSources",
+            "default": [{"url": "https://www.tradeindia.com/manufacturers/cotton-fabric.html"}],
+            "prefill": [{"url": "https://www.tradeindia.com/manufacturers/cotton-fabric.html"}]
+        },
+        "maxSuppliers": {
+            "title": "Max Suppliers to Extract",
+            "type": "integer",
+            "description": "Maximum number of suppliers to extract across all URLs.",
+            "editor": "number",
+            "minimum": 1,
+            "maximum": 50000,
+            "default": 500,
+            "prefill": 500
+        }
+    },
+    "required": ["categoryUrls"]
+}
