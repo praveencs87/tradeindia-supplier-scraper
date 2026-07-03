@@ -1,3 +1,4 @@
+import { armKillSwitch, disarmKillSwitch } from './utils/timeoutManager.js';
 import { Actor } from 'apify';
 import { CheerioCrawler, log } from 'crawlee';
 
@@ -125,7 +126,9 @@ try {
     log.info(`Starting TradeIndia crawler for ${categoryUrls.length} start URLs...`);
     
     await crawler.addRequests(categoryUrls);
+    armKillSwitch(crawler);
     await crawler.run();
+    disarmKillSwitch();
 
     log.info(`🎉 Finished! Extracted ${totalSuppliersExtracted} suppliers.`);
 } catch (error) {
